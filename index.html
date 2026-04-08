@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lokanayak Omeo Kumar Das College</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════
+   ROOT & RESET
+═══════════════════════════════════════ */
+:root {
+  --navy:      #0d2b5e;
+  --navy-dark: #071a3e;
+  --navy-mid:  #1a4080;
+  --blue-soft: #2563a8;
+  --accent:    #c8a84b;   /* gold accent — academic gravitas */
+  --accent-lt: #f0e4b8;
+  --text:      #1c2b3a;
+  --mid:       #4a5e75;
+  --soft:      #8a9bb0;
+  --line:      #dde4ee;
+  --bg:        #f4f6fb;
+  --white:     #ffffff;
+  --shadow-sm: 0 2px 8px rgba(13,43,94,.08);
+  --shadow-md: 0 4px 20px rgba(13,43,94,.12);
+  --shadow-lg: 0 8px 40px rgba(13,43,94,.16);
+  --r:         12px;
+  --serif:     'Playfair Display', Georgia, serif;
+  --sans:      'Source Sans 3', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.65; font-size: 16px; }
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+button { font-family: var(--sans); cursor: pointer; }
+
+/* ─── UTILS ─── */
+.wrap     { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+.sec      { padding: 72px 0; }
+.sec-alt  { background: var(--white); }
+.lbl {
+  display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+}
+.sec-title {
+  font-family: var(--serif); font-size: clamp(26px,3.8vw,40px);
+  color: var(--navy); line-height: 1.2; margin-bottom: 12px;
+}
+.sec-sub { color: var(--mid); max-width: 560px; margin-bottom: 44px; font-size: 15px; }
+.g2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px; }
+.g3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 22px; }
+.g4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 18px; }
+.card {
+  background: var(--white); border-radius: var(--r);
+  box-shadow: var(--shadow-sm); overflow: hidden;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.badge {
+  display: inline-block; padding: 3px 11px; border-radius: 50px;
+  font-size: 11px; font-weight: 600; letter-spacing: .04em;
+  background: var(--accent-lt); color: #7a5e1a;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 12px 26px; border-radius: 8px; border: none;
+  font-family: var(--sans); font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: all .18s;
+}
+.btn-prim  { background: var(--navy);  color: #fff; }
+.btn-prim:hover  { background: var(--navy-mid); box-shadow: 0 4px 16px rgba(13,43,94,.3); }
+.btn-gold  { background: var(--accent); color: #fff; }
+.btn-gold:hover  { background: #b3943f; box-shadow: 0 4px 16px rgba(200,168,75,.35); }
+.btn-outl  { background: transparent; border: 2px solid var(--navy); color: var(--navy); }
+.btn-outl:hover  { background: var(--navy); color: #fff; }
+.btn-outl-w { background: transparent; border: 2px solid rgba(255,255,255,.4); color: #fff; }
+.btn-outl-w:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.7); }
+.hidden   { display: none !important; }
+.page     { display: none; }
+.page.on  { display: block; }
+
+/* ─── TOPBAR ─── */
+.topbar {
+  background: var(--navy-dark); color: rgba(255,255,255,.65);
+  font-size: 12.5px; padding: 6px 0; letter-spacing: .02em;
+}
+.topbar .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; }
+.topbar a { color: var(--accent); }
+.topbar-right { display: flex; gap: 20px; }
+
+/* ─── NAVBAR ─── */
+.navbar {
+  position: sticky; top: 0; z-index: 200;
+  background: var(--navy);
+  box-shadow: 0 2px 20px rgba(0,0,0,.22);
+}
+.nav-wrap {
+  max-width: 1160px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; height: 66px; gap: 16px;
+}
+.logo { display: flex; align-items: center; gap: 13px; flex-shrink: 0; }
+.logo-crest {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent) 0%, #e8c96a 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--navy-dark);
+  flex-shrink: 0;
+}
+.logo-txt { line-height: 1.2; }
+.logo-name { font-family: var(--serif); font-size: 16px; color: #fff; font-weight: 700; }
+.logo-sub  { font-size: 11px; color: rgba(255,255,255,.5); letter-spacing: .05em; }
+
+.nav-links {
+  display: flex; list-style: none; margin-left: auto; gap: 2px;
+}
+.nav-links a {
+  color: rgba(255,255,255,.75); font-size: 13.5px; font-weight: 500;
+  padding: 8px 12px; border-radius: 6px;
+  transition: background .15s, color .15s;
+  white-space: nowrap;
+}
+.nav-links a:hover, .nav-links a.on {
+  background: rgba(255,255,255,.12); color: #fff;
+}
+.nav-links a.on { color: var(--accent); }
+
+.nav-end { display: flex; align-items: center; gap: 10px; margin-left: 12px; }
+.search-wrap {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15);
+  border-radius: 7px; padding: 7px 14px; width: 0; overflow: hidden;
+  transition: width .3s; max-width: 220px;
+}
+.search-wrap.open { width: 220px; }
+.search-wrap input {
+  border: none; outline: none; background: transparent;
+  color: #fff; font-family: var(--sans); font-size: 13px; flex: 1;
+  min-width: 0;
+}
+.search-wrap input::placeholder { color: rgba(255,255,255,.45); }
+.icon-btn {
+  background: none; border: none; color: rgba(255,255,255,.7);
+  padding: 7px; border-radius: 6px; transition: background .15s, color .15s;
+  cursor: pointer; font-size: 17px;
+}
+.icon-btn:hover { background: rgba(255,255,255,.1); color: #fff; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+.hamburger span { display: block; width: 22px; height: 2.5px; background: rgba(255,255,255,.8); border-radius: 2px; transition: .2s; }
+
+/* ─── HERO ─── */
+.hero {
+  background: linear-gradient(160deg, var(--navy-dark) 0%, var(--navy) 55%, var(--navy-mid) 100%);
+  min-height: 90vh; display: flex; align-items: center;
+  position: relative; overflow: hidden; padding: 80px 0;
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: -2px; left: 0; right: 0; height: 90px;
+  background: var(--bg);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+/* geometric pattern overlay */
+.hero-bg {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+.hero-bg::before {
+  content: '';
+  position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
+  width: 520px; height: 520px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,168,75,.12) 0%, transparent 65%);
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; right: 80px; top: 50%; transform: translateY(-50%);
+  width: 340px; height: 340px; border-radius: 50%;
+  border: 1.5px solid rgba(200,168,75,.15);
+}
+.hero-inner {
+  max-width: 1160px; margin: 0 auto; padding: 0 24px;
+  display: grid; grid-template-columns: 1fr 400px; gap: 56px; align-items: center;
+  position: relative; z-index: 1;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 20px;
+}
+.hero-eyebrow::before { content:''; width:30px; height:2px; background:var(--accent); }
+.hero h1 {
+  font-family: var(--serif); font-size: clamp(32px,4.5vw,56px);
+  color: #fff; line-height: 1.1; margin-bottom: 10px;
+}
+.hero h1 span { color: var(--accent); }
+.hero-college { font-family: var(--serif); font-size: clamp(14px,1.5vw,17px); color: rgba(255,255,255,.55); margin-bottom: 20px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.hero p { color: rgba(255,255,255,.72); font-size: 17px; max-width: 500px; margin-bottom: 36px; line-height: 1.7; }
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-stats {
+  display: flex; gap: 32px; margin-top: 52px; padding-top: 36px;
+  border-top: 1px solid rgba(255,255,255,.12); flex-wrap: wrap;
+}
+.hero-stat strong { display: block; font-family: var(--serif); font-size: 34px; color: var(--accent); line-height: 1; }
+.hero-stat span { font-size: 12.5px; color: rgba(255,255,255,.5); margin-top: 4px; display: block; }
+
+/* hero card panel */
+.hero-panel {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 16px; padding: 28px;
+  backdrop-filter: blur(16px);
+}
+.hero-panel-hd {
+  font-family: var(--serif); font-size: 17px; color: #fff;
+  margin-bottom: 18px; padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.qlink {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.07);
+  color: rgba(255,255,255,.75); font-size: 14px; cursor: pointer;
+  transition: color .15s;
+}
+.qlink:last-child { border-bottom: none; }
+.qlink:hover { color: var(--accent); }
+.qlink-left { display: flex; align-items: center; gap: 12px; }
+.qlink-ico {
+  width: 34px; height: 34px; border-radius: 8px; background: rgba(200,168,75,.15);
+  display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;
+}
+.qlink-arr { font-size: 18px; opacity: .5; }
+
+/* ─── TICKER ─── */
+.ticker {
+  background: var(--accent); color: var(--navy-dark);
+  padding: 10px 0; overflow: hidden;
+}
+.ticker-inner { display: flex; align-items: center; }
+.ticker-tag {
+  background: var(--navy-dark); color: var(--accent);
+  padding: 4px 18px; font-size: 11.5px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  white-space: nowrap; flex-shrink: 0;
+}
+.ticker-scroll {
+  display: flex; gap: 60px;
+  animation: scroll 30s linear infinite;
+  white-space: nowrap; padding-left: 40px;
+}
+@keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.ticker-scroll span { font-size: 13.5px; font-weight: 600; }
+.ticker-scroll span::before { content:'◆ '; opacity:.5; margin-right:3px; }
+
+/* ─── NOTICE BOARD ─── */
+.notice-list { background: var(--white); border-radius: var(--r); box-shadow: var(--shadow-sm); overflow: hidden; }
+.notice-row {
+  display: grid; grid-template-columns: 60px 1fr auto;
+  gap: 16px; align-items: center; padding: 18px 22px;
+  border-bottom: 1px solid var(--line); cursor: pointer;
+  transition: background .15s;
+}
+.notice-row:last-child { border-bottom: none; }
+.notice-row:hover { background: #f0f4fb; }
+.notice-cal {
+  background: var(--navy); color: #fff; border-radius: 8px;
+  text-align: center; padding: 8px 4px;
+}
+.notice-cal-d { font-family: var(--serif); font-size: 20px; line-height: 1; }
+.notice-cal-m { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; opacity: .7; margin-top: 2px; }
+.notice-h { font-weight: 600; font-size: 14.5px; color: var(--text); margin-bottom: 3px; }
+.notice-p { font-size: 13px; color: var(--mid); }
+.notice-tag { font-size: 11px; }
+.notice-chev { color: var(--navy); font-size: 20px; opacity: .5; }
+
+/* ─── COURSES ─── */
+.course-top { height: 5px; }
+.course-body { padding: 22px; }
+.course-ico { font-size: 34px; margin-bottom: 12px; }
+.course-name { font-family: var(--serif); font-size: 19px; color: var(--navy); margin-bottom: 8px; }
+.course-meta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 12px; }
+.course-meta span { font-size: 12.5px; color: var(--mid); display: flex; align-items: center; gap: 4px; }
+.course-desc { font-size: 13.5px; color: var(--mid); line-height: 1.6; }
+.course-cta { margin-top: 16px; }
+
+/* ─── ACHIEVEMENTS ─── */
+.ach-card .ach-body { padding: 26px; }
+.ach-ico { font-size: 38px; margin-bottom: 14px; }
+.ach-title { font-family: var(--serif); font-size: 18px; color: var(--navy); margin-bottom: 7px; }
+.ach-desc { font-size: 13.5px; color: var(--mid); line-height: 1.6; }
+
+/* ─── FACULTY ─── */
+.fac-card { text-align: center; }
+.fac-avatar {
+  width: 88px; height: 88px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--blue-soft) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 36px; margin: 26px auto 14px; color: rgba(255,255,255,.7);
+}
+.fac-name { font-family: var(--serif); font-size: 16.5px; color: var(--navy); }
+.fac-desg { color: var(--blue-soft); font-size: 13px; font-weight: 500; margin: 4px 0 2px; }
+.fac-dept { color: var(--soft); font-size: 12.5px; padding-bottom: 22px; }
+
+/* ─── ACTIVITIES ─── */
+.act-body { padding: 26px; }
+.act-hd { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.act-ico {
+  width: 46px; height: 46px; border-radius: 10px;
+  background: #edf2fd; display: flex; align-items: center; justify-content: center;
+  font-size: 22px; flex-shrink: 0;
+}
+.act-title { font-family: var(--serif); font-size: 17px; color: var(--navy); }
+.act-desc { font-size: 13.5px; color: var(--mid); line-height: 1.65; margin-bottom: 16px; }
+
+/* ─── NEWS ─── */
+.news-img {
+  height: 170px;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 52px; color: rgba(255,255,255,.25);
+}
+.news-body { padding: 20px; }
+.news-date { font-size: 12px; color: var(--soft); margin-bottom: 7px; }
+.news-title { font-family: var(--serif); font-size: 17px; color: var(--navy); margin-bottom: 8px; }
+.news-exc { font-size: 13.5px; color: var(--mid); line-height: 1.6; }
+.news-more { display: inline-block; margin-top: 12px; font-size: 13px; color: var(--navy); font-weight: 600; }
+.news-more:hover { color: var(--accent); }
+
+/* ─── ABOUT ─── */
+.about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.about-visual {
+  background: linear-gradient(160deg, var(--navy-dark) 0%, var(--navy-mid) 100%);
+  border-radius: 16px; padding: 44px; color: #fff; text-align: center; position: sticky; top: 90px;
+}
+.about-crest { font-size: 72px; margin-bottom: 16px; }
+.about-vis-name { font-family: var(--serif); font-size: 22px; margin-bottom: 8px; }
+.about-vis-sub { color: rgba(255,255,255,.6); font-size: 14px; margin-bottom: 28px; }
+.about-stat-row { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.about-stat { text-align: center; }
+.about-stat strong { font-family: var(--serif); font-size: 28px; color: var(--accent); display: block; }
+.about-stat span { font-size: 12px; color: rgba(255,255,255,.55); }
+.mv-item {
+  border-left: 3px solid var(--navy); padding-left: 18px; margin-bottom: 24px;
+}
+.mv-item h4 { font-family: var(--serif); font-size: 18px; color: var(--navy); margin-bottom: 7px; }
+.mv-item p { color: var(--mid); font-size: 14.5px; }
+
+/* ─── STUDENT PROFILE ─── */
+.portal-outer { max-width: 460px; margin: 0 auto; }
+.portal-card {
+  background: var(--white); border-radius: 16px;
+  box-shadow: var(--shadow-md); padding: 44px 40px; text-align: center;
+}
+.portal-ico { font-size: 52px; margin-bottom: 14px; }
+.portal-title { font-family: var(--serif); font-size: 26px; color: var(--navy); margin-bottom: 6px; }
+.portal-sub { color: var(--mid); font-size: 14px; margin-bottom: 28px; }
+.form-gr { text-align: left; margin-bottom: 16px; }
+.form-lbl { font-size: 13.5px; font-weight: 600; color: var(--text); display: block; margin-bottom: 6px; }
+.form-inp {
+  width: 100%; padding: 11px 15px;
+  border: 1.5px solid var(--line); border-radius: 8px;
+  font-family: var(--sans); font-size: 14.5px; color: var(--text);
+  background: var(--bg); transition: border-color .15s;
+}
+.form-inp:focus { outline: none; border-color: var(--navy); background: #fff; }
+.portal-hint { color: var(--soft); font-size: 12px; margin-top: 14px; }
+
+/* profile dashboard */
+.profile-dash { display: grid; grid-template-columns: 270px 1fr; gap: 28px; }
+.profile-side {
+  background: var(--white); border-radius: 14px;
+  box-shadow: var(--shadow-sm); padding: 28px 22px; text-align: center;
+}
+.profile-av {
+  width: 90px; height: 90px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy), var(--blue-soft));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 40px; margin: 0 auto 14px;
+}
+.profile-nm { font-family: var(--serif); font-size: 20px; color: var(--navy); }
+.profile-yr { color: var(--accent); font-size: 13px; font-weight: 600; margin: 4px 0 14px; }
+.profile-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 13.5px; }
+.profile-row:last-child { border-bottom: none; }
+.profile-row .l { color: var(--mid); }
+.profile-row .r { font-weight: 600; }
+.profile-main { display: flex; flex-direction: column; gap: 22px; }
+.pbox { background: var(--white); border-radius: 14px; box-shadow: var(--shadow-sm); padding: 22px; }
+.pbox-title { font-family: var(--serif); font-size: 18px; color: var(--navy); margin-bottom: 14px; }
+.subj-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.subj-row:last-child { border-bottom: none; }
+.subj-nm { font-weight: 600; font-size: 14px; }
+.subj-code { color: var(--soft); font-size: 12.5px; }
+.prog-bar { width: 100px; height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
+.prog-fill { height: 100%; background: var(--navy); border-radius: 3px; }
+
+/* ─── CONTACT ─── */
+.contact-split { display: grid; grid-template-columns: 1fr 1.5fr; gap: 48px; }
+.cinfo-item { display: flex; gap: 14px; margin-bottom: 26px; }
+.cinfo-ico {
+  width: 42px; height: 42px; border-radius: 10px;
+  background: #edf2fd; display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.cinfo-lbl { font-size: 12px; color: var(--soft); margin-bottom: 2px; }
+.cinfo-val { font-weight: 600; font-size: 14.5px; color: var(--text); }
+.cform { background: var(--white); border-radius: 16px; box-shadow: var(--shadow-sm); padding: 34px; }
+.form-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+textarea.form-inp { resize: vertical; min-height: 120px; }
+.contact-map { margin-top: 20px; border-radius: 12px; overflow: hidden; }
+
+/* ─── MODAL ─── */
+.modal-bg {
+  position: fixed; inset: 0; z-index: 999;
+  background: rgba(7,26,62,.55);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px; opacity: 0; pointer-events: none; transition: opacity .2s;
+}
+.modal-bg.on { opacity: 1; pointer-events: all; }
+.modal {
+  background: var(--white); border-radius: 16px;
+  max-width: 560px; width: 100%; padding: 36px;
+  transform: translateY(18px); transition: transform .2s;
+  position: relative;
+}
+.modal-bg.on .modal { transform: translateY(0); }
+.modal-x {
+  position: absolute; top: 16px; right: 16px;
+  background: none; border: none; font-size: 22px; cursor: pointer;
+  color: var(--mid); line-height: 1; padding: 4px 8px; border-radius: 6px;
+}
+.modal-x:hover { background: var(--line); }
+
+/* ─── FOOTER ─── */
+footer { background: var(--navy-dark); color: rgba(255,255,255,.6); padding: 60px 24px 28px; }
+.foot-grid {
+  max-width: 1160px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 36px;
+  padding-bottom: 44px; border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.foot-about p { font-size: 13.5px; line-height: 1.75; margin-top: 14px; max-width: 280px; }
+.foot-col h5 { color: rgba(255,255,255,.9); font-size: 13px; font-weight: 700; margin-bottom: 14px; letter-spacing: .05em; text-transform: uppercase; }
+.foot-col ul { list-style: none; }
+.foot-col ul li { margin-bottom: 9px; }
+.foot-col ul li a { font-size: 13.5px; color: rgba(255,255,255,.55); transition: color .15s; }
+.foot-col ul li a:hover { color: var(--accent); }
+.soc { display: flex; gap: 9px; margin-top: 18px; }
+.soc a {
+  width: 34px; height: 34px; border-radius: 8px;
+  background: rgba(255,255,255,.07);
+  display: flex; align-items: center; justify-content: center; font-size: 14px;
+  color: rgba(255,255,255,.55); transition: background .15s, color .15s;
+}
+.soc a:hover { background: var(--accent); color: var(--navy-dark); }
+.foot-bottom {
+  max-width: 1160px; margin: 24px auto 0;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  font-size: 12.5px;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 960px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links.open {
+    display: flex; flex-direction: column;
+    position: absolute; top: 66px; left: 0; right: 0;
+    background: var(--navy); padding: 12px 20px 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.25); z-index: 100;
+  }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-panel { display: none; }
+  .about-split { grid-template-columns: 1fr; }
+  .about-visual { position: static; }
+  .contact-split { grid-template-columns: 1fr; }
+  .profile-dash { grid-template-columns: 1fr; }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+  .form-row2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .foot-grid { grid-template-columns: 1fr; }
+  .foot-bottom { flex-direction: column; }
+  .notice-row { grid-template-columns: 50px 1fr; }
+  .notice-chev { display: none; }
+  .hero-stats { gap: 20px; }
+  .sec { padding: 52px 0; }
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+.fu  { animation: fadeUp .55s ease both; }
+.d1  { animation-delay: .08s; }
+.d2  { animation-delay: .16s; }
+.d3  { animation-delay: .24s; }
+.d4  { animation-delay: .32s; }
+</style>
+</head>
+<body>
+
+<!-- ── TOPBAR ── -->
+<div class="topbar">
+  <div class="wrap">
+    <span>📞 +91 98570 12345 &nbsp;|&nbsp; ✉ info@lokcollege.edu.in</span>
+    <div class="topbar-right">
+      <span>Affiliated: Gauhati University</span>
+      <span>|</span>
+      <a href="#" onclick="go('notices')">📢 Admissions Open 2026–27</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar" id="navbar">
+  <div class="nav-wrap">
+    <div class="logo">
+      <div class="logo-crest">L</div>
+      <div class="logo-txt">
+        <div class="logo-name">LOKD College</div>
+        <div class="logo-sub">Lokanayak Omeo Kumar Das College</div>
+      </div>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#" onclick="go('home')"         id="nl-home"         class="on">Home</a></li>
+      <li><a href="#" onclick="go('about')"        id="nl-about"             >About</a></li>
+      <li><a href="#" onclick="go('courses')"      id="nl-courses"           >Courses</a></li>
+      <li><a href="#" onclick="go('notices')"      id="nl-notices"           >Notices</a></li>
+      <li><a href="#" onclick="go('achievements')" id="nl-achievements"      >Achievements</a></li>
+      <li><a href="#" onclick="go('faculty')"      id="nl-faculty"           >Faculty</a></li>
+      <li><a href="#" onclick="go('profile')"      id="nl-profile"           >Student Portal</a></li>
+      <li><a href="#" onclick="go('activities')"   id="nl-activities"        >Activities</a></li>
+      <li><a href="#" onclick="go('news')"         id="nl-news"              >News</a></li>
+      <li><a href="#" onclick="go('contact')"      id="nl-contact"           >Contact</a></li>
+    </ul>
+    <div class="nav-end">
+      <div class="search-wrap" id="sw">
+        <input type="text" placeholder="Search…" id="sInp" oninput="doSearch(this.value)"/>
+        <button class="icon-btn" onclick="toggleSearch()" style="font-size:13px;">✕</button>
+      </div>
+      <button class="icon-btn" onclick="toggleSearch()">🔍</button>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════
+     PAGES
+════════════════════════════════════ -->
+<div id="root">
+
+<!-- ═══ HOME ═══ -->
+<div class="page on" id="page-home">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow fu">Established 1970 · Dhekiajuli, Assam</div>
+        <div class="hero-college fu d1">Lokanayak Omeo Kumar Das College</div>
+        <h1 class="fu d2">Empowering Minds,<br/><span>Building Futures</span></h1>
+        <p class="fu d3">A premier institution of higher learning in Dhekiajuli, dedicated to academic excellence, holistic development, and producing responsible citizens for a changing world.</p>
+        <div class="hero-ctas fu d4">
+          <button class="btn btn-gold" onclick="go('admissions')">Apply for Admission →</button>
+          <button class="btn btn-outl-w" onclick="go('courses')">Explore Courses</button>
+        </div>
+        <div class="hero-stats fu d4">
+          <div class="hero-stat"><strong>5,000+</strong><span>Students</span></div>
+          <div class="hero-stat"><strong>150+</strong><span>Faculty & Staff</span></div>
+          <div class="hero-stat"><strong>30+</strong><span>Programmes</span></div>
+          <div class="hero-stat"><strong>57 yrs</strong><span>Of Excellence</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="hero-panel fu d3">
+          <div class="hero-panel-hd">🎯 Quick Access</div>
+          <div class="qlink" onclick="go('admissions')">
+            <div class="qlink-left"><div class="qlink-ico">📋</div>Admissions 2026–27</div>
+            <div class="qlink-arr">›</div>
+          </div>
+          <div class="qlink" onclick="go('notices')">
+            <div class="qlink-left"><div class="qlink-ico">📢</div>Latest Notices</div>
+            <div class="qlink-arr">›</div>
+          </div>
+          <div class="qlink" onclick="go('courses')">
+            <div class="qlink-left"><div class="qlink-ico">🎓</div>Our Courses</div>
+            <div class="qlink-arr">›</div>
+          </div>
+          <div class="qlink" onclick="go('profile')">
+            <div class="qlink-left"><div class="qlink-ico">👤</div>Student Login</div>
+            <div class="qlink-arr">›</div>
+          </div>
+          <div class="qlink" onclick="go('contact')">
+            <div class="qlink-left"><div class="qlink-ico">📞</div>Contact Us</div>
+            <div class="qlink-arr">›</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ticker -->
+  <div class="ticker">
+    <div class="wrap" style="display:flex;align-items:center;overflow:hidden;">
+      <div class="ticker-tag">NOTICES</div>
+      <div style="overflow:hidden;flex:1;">
+        <div class="ticker-scroll">
+          <span>Semester Exam Schedule Published — Download Now</span>
+          <span>Admissions Open 2025–26 — Last Date: April 30</span>
+          <span>Annual Sports Day: April 18, 2025</span>
+          <span>NAAC Re-Accreditation Visit — May 2025</span>
+          <span>Scholarship Applications Open — Apply by April 25</span>
+          <span>Semester Exam Schedule Published — Download Now</span>
+          <span>Admissions Open 2025–26 — Last Date: April 30</span>
+          <span>Annual Sports Day: April 18, 2025</span>
+          <span>NAAC Re-Accreditation Visit — May 2025</span>
+          <span>Scholarship Applications Open — Apply by April 25</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notice Preview -->
+  <section class="sec wrap">
+    <div class="lbl">Announcements</div>
+    <h2 class="sec-title">Latest Notices</h2>
+    <p class="sec-sub">Stay informed with the latest official announcements and circulars from the college administration.</p>
+    <div class="notice-list" id="homeNotices"></div>
+    <div style="text-align:center;margin-top:26px;">
+      <button class="btn btn-outl" onclick="go('notices')">View All Notices →</button>
+    </div>
+  </section>
+
+  <!-- News Preview -->
+  <section class="sec sec-alt">
+    <div class="wrap">
+      <div class="lbl">Campus Life</div>
+      <h2 class="sec-title">News & Events</h2>
+      <p class="sec-sub">The latest happenings, achievements, and upcoming events from LOKD College.</p>
+      <div class="g3" id="homeNews"></div>
+      <div style="text-align:center;margin-top:30px;">
+        <button class="btn btn-prim" onclick="go('news')">All News →</button>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /home -->
+
+<!-- ═══ ABOUT ═══ -->
+<div class="page" id="page-about">
+  <section class="sec wrap">
+    <div class="lbl">Who We Are</div>
+    <h2 class="sec-title">About the College</h2>
+    <div class="about-split">
+      <div>
+        <p style="color:var(--mid);margin-bottom:16px;font-size:15px;">Lokanayak Omeo Kumar Das College (LOKD College), established in 1970, is one of the most prominent institutions of higher education in the state of Assam. Named after Lokanayak Omeo Kumar Das — a revered political leader and freedom fighter — the college has stood as a beacon of knowledge and character for over five decades.</p>
+        <p style="color:var(--mid);margin-bottom:16px;font-size:15px;">Affiliated with Gauhati University, the college offers undergraduate and postgraduate programmes across the faculties of Science, Arts, and Commerce. The campus spans a serene environment on the outskirts of Imphal, equipped with modern laboratories, libraries, and sports facilities.</p>
+        <p style="color:var(--mid);margin-bottom:32px;font-size:15px;">The college has produced thousands of distinguished alumni — civil servants, scientists, doctors, teachers, entrepreneurs, and leaders — who carry its values of integrity, perseverance, and public service into every walk of life.</p>
+        <div class="mv-item">
+          <h4>🎯 Our Mission</h4>
+          <p>To provide quality, affordable, and inclusive higher education that empowers individuals with knowledge, skills, and values — enabling them to contribute meaningfully to society and the nation.</p>
+        </div>
+        <div class="mv-item">
+          <h4>🌟 Our Vision</h4>
+          <p>To be a leading institution of academic excellence in Northeast India — recognized for rigorous scholarship, vibrant campus life, and commitment to social responsibility.</p>
+        </div>
+        <div class="mv-item">
+          <h4>📜 Our History</h4>
+          <p>Founded in 1970 as a tribute to Lokanayak Omeo Kumar Das, the college began with a handful of classrooms and a vision. Today it stands as a fully-fledged institution with modern infrastructure, affiliated to Manipur University and accredited by NAAC.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;">
+          <div style="background:#edf2fd;border-radius:12px;padding:18px;">
+            <div style="font-family:var(--serif);font-size:28px;color:var(--navy);">NAAC B+</div>
+            <div style="color:var(--mid);font-size:13px;margin-top:4px;">Accreditation Grade</div>
+          </div>
+          <div style="background:#edf2fd;border-radius:12px;padding:18px;">
+            <div style="font-family:var(--serif);font-size:28px;color:var(--navy);">1970</div>
+            <div style="color:var(--mid);font-size:13px;margin-top:4px;">Year Established</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="about-visual">
+          <div class="about-crest">🏛️</div>
+          <div class="about-vis-name">LOKD College</div>
+          <div class="about-vis-sub">Lokanayak Omeo Kumar Das College<br/>Dhekiajuli, Assam</div>
+          <div class="about-stat-row">
+            <div class="about-stat"><strong>57</strong><span>Years</span></div>
+            <div class="about-stat"><strong>5K+</strong><span>Students</span></div>
+            <div class="about-stat"><strong>150+</strong><span>Faculty</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ COURSES ═══ -->
+<div class="page" id="page-courses">
+  <section class="sec wrap">
+    <div class="lbl">Academics</div>
+    <h2 class="sec-title">Our Programmes</h2>
+    <p class="sec-sub">Choose from a diverse range of undergraduate, postgraduate, and diploma programmes designed for today's world.</p>
+    <div class="g3" id="courseGrid"></div>
+  </section>
+</div>
+
+<!-- ═══ NOTICES ═══ -->
+<div class="page" id="page-notices">
+  <section class="sec wrap">
+    <div class="lbl">Official</div>
+    <h2 class="sec-title">Notice Board</h2>
+    <p class="sec-sub">Official circulars, exam schedules, and important announcements from the administration.</p>
+    <div class="notice-list" id="allNotices"></div>
+  </section>
+</div>
+
+<!-- ═══ ACHIEVEMENTS ═══ -->
+<div class="page" id="page-achievements">
+  <section class="sec wrap">
+    <div class="lbl">Pride</div>
+    <h2 class="sec-title">Achievements</h2>
+    <p class="sec-sub">Celebrating the milestones, awards, and recognition earned by our students, faculty, and institution.</p>
+    <div class="g3" id="achGrid"></div>
+  </section>
+</div>
+
+<!-- ═══ FACULTY ═══ -->
+<div class="page" id="page-faculty">
+  <section class="sec wrap">
+    <div class="lbl">Our People</div>
+    <h2 class="sec-title">Faculty & Staff</h2>
+    <p class="sec-sub">Meet the dedicated educators and administrative staff who power LOKD College every day.</p>
+    <div class="g4" id="facGrid"></div>
+  </section>
+</div>
+
+<!-- ═══ STUDENT PORTAL ═══ -->
+<div class="page" id="page-profile">
+  <section class="sec wrap">
+    <div class="lbl">Student Portal</div>
+    <h2 class="sec-title">Student Dashboard</h2>
+
+    <div id="portalLogin">
+      <div class="portal-outer">
+        <div class="portal-card">
+          <div class="portal-ico">🎓</div>
+          <div class="portal-title">Student Login</div>
+          <div class="portal-sub">Access your academic profile, enrolled subjects, and achievements.</div>
+          <div class="form-gr">
+            <label class="form-lbl">Roll Number / Student ID</label>
+            <input class="form-inp" type="text" placeholder="e.g. LOK2025001" id="lid"/>
+          </div>
+          <div class="form-gr">
+            <label class="form-lbl">Password</label>
+            <input class="form-inp" type="password" placeholder="Enter your password" id="lpwd"/>
+          </div>
+          <button class="btn btn-prim" style="width:100%;justify-content:center;margin-top:6px;" onclick="doLogin()">Login →</button>
+          <div class="portal-hint">Demo: use <strong>demo</strong> / <strong>demo123</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="portalDash" class="hidden">
+      <div class="profile-dash">
+        <div class="profile-side">
+          <div class="profile-av">👤</div>
+          <div class="profile-nm">Saranga Das</div>
+          <div class="profile-yr">B.Sc. Physics · 2nd Year</div>
+          <span class="badge">Roll: LOKD2025001</span>
+          <div style="margin-top:18px;">
+            <div class="profile-row"><span class="l">Department</span><span class="r">Science</span></div>
+            <div class="profile-row"><span class="l">Batch</span><span class="r">2023–2026</span></div>
+            <div class="profile-row"><span class="l">CGPA</span><span class="r">8.4 / 10</span></div>
+            <div class="profile-row"><span class="l">Attendance</span><span class="r">89%</span></div>
+            <div class="profile-row"><span class="l">Category</span><span class="r">General</span></div>
+          </div>
+          <button class="btn btn-outl" style="width:100%;justify-content:center;margin-top:20px;" onclick="doLogout()">Logout</button>
+        </div>
+        <div class="profile-main">
+          <div class="pbox">
+            <div class="pbox-title">Enrolled Subjects</div>
+            <div class="subj-row">
+              <div><div class="subj-nm">Mechanics & Thermodynamics</div><div class="subj-code">PH201 · Sem 3</div></div>
+              <div><div style="font-size:12px;color:var(--soft);text-align:right;margin-bottom:4px;">82%</div><div class="prog-bar"><div class="prog-fill" style="width:82%"></div></div></div>
+            </div>
+            <div class="subj-row">
+              <div><div class="subj-nm">Electricity & Magnetism</div><div class="subj-code">PH203 · Sem 3</div></div>
+              <div><div style="font-size:12px;color:var(--soft);text-align:right;margin-bottom:4px;">76%</div><div class="prog-bar"><div class="prog-fill" style="width:76%"></div></div></div>
+            </div>
+            <div class="subj-row">
+              <div><div class="subj-nm">Mathematical Physics</div><div class="subj-code">PH205 · Sem 3</div></div>
+              <div><div style="font-size:12px;color:var(--soft);text-align:right;margin-bottom:4px;">91%</div><div class="prog-bar"><div class="prog-fill" style="width:91%"></div></div></div>
+            </div>
+            <div class="subj-row">
+              <div><div class="subj-nm">Environmental Science</div><div class="subj-code">ES101 · Compulsory</div></div>
+              <div><div style="font-size:12px;color:var(--soft);text-align:right;margin-bottom:4px;">88%</div><div class="prog-bar"><div class="prog-fill" style="width:88%"></div></div></div>
+            </div>
+          </div>
+          <div class="pbox">
+            <div class="pbox-title">My Achievements</div>
+            <div class="g2">
+              <div style="background:#edf2fd;border-radius:10px;padding:16px;">
+                <div style="font-size:26px;margin-bottom:8px;">🥇</div>
+                <div style="font-weight:600;font-size:13.5px;">1st — State Science Quiz 2024</div>
+                <div style="color:var(--mid);font-size:12.5px;margin-top:3px;">Inter-College Competition</div>
+              </div>
+              <div style="background:#fdf8ec;border-radius:10px;padding:16px;">
+                <div style="font-size:26px;margin-bottom:8px;">📜</div>
+                <div style="font-weight:600;font-size:13.5px;">Merit Scholarship 2023–24</div>
+                <div style="color:var(--mid);font-size:12.5px;margin-top:3px;">Academic Excellence Award</div>
+              </div>
+              <div style="background:#f0fdf4;border-radius:10px;padding:16px;">
+                <div style="font-size:26px;margin-bottom:8px;">🏃</div>
+                <div style="font-weight:600;font-size:13.5px;">Silver — State Athletics</div>
+                <div style="color:var(--mid);font-size:12.5px;margin-top:3px;">400m District Meet 2024</div>
+              </div>
+              <div style="background:#fef2f2;border-radius:10px;padding:16px;">
+                <div style="font-size:26px;margin-bottom:8px;">🖊️</div>
+                <div style="font-weight:600;font-size:13.5px;">Best Essay — NCC Rally</div>
+                <div style="color:var(--mid);font-size:12.5px;margin-top:3px;">State-Level NCC Event 2024</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ ACTIVITIES ═══ -->
+<div class="page" id="page-activities">
+  <section class="sec wrap">
+    <div class="lbl">Campus Life</div>
+    <h2 class="sec-title">Activities & Clubs</h2>
+    <p class="sec-sub">Life at LOK College extends well beyond the classroom — discover clubs, sports, cultural events, and NCC.</p>
+    <div class="g3" id="actGrid"></div>
+  </section>
+</div>
+
+<!-- ═══ NEWS ═══ -->
+<div class="page" id="page-news">
+  <section class="sec wrap">
+    <div class="lbl">Updates</div>
+    <h2 class="sec-title">News & Events</h2>
+    <p class="sec-sub">Latest news, announcements, and event coverage from the LOKD College campus.</p>
+    <div class="g3" id="newsGrid"></div>
+  </section>
+</div>
+
+<!-- ═══ CONTACT ═══ -->
+<div class="page" id="page-contact">
+  <section class="sec wrap">
+    <div class="lbl">Reach Us</div>
+    <h2 class="sec-title">Get in Touch</h2>
+    <div class="contact-split">
+      <div>
+        <p style="color:var(--mid);margin-bottom:32px;font-size:15px;">Have a question? We're here to help prospective students, parents, alumni, and the wider community.</p>
+        <div class="cinfo-item">
+          <div class="cinfo-ico">📍</div>
+          <div><div class="cinfo-lbl">Address</div><div class="cinfo-val">Lokopriya Omeo Kumar College<br/>Dhekiajuli,  Sonitpur<br/>Assam — 784 110</div></div>
+        </div>
+        <div class="cinfo-item">
+          <div class="cinfo-ico">📞</div>
+          <div><div class="cinfo-lbl">Phone</div><div class="cinfo-val">+91 98570 12345<br/>+91 0385-2410001</div></div>
+        </div>
+        <div class="cinfo-item">
+          <div class="cinfo-ico">📧</div>
+          <div><div class="cinfo-lbl">Email</div><div class="cinfo-val">info@lokdcollege.edu.in<br/>principal@lokdcollege.edu.in</div></div>
+        </div>
+        <div class="cinfo-item">
+          <div class="cinfo-ico">🕐</div>
+          <div><div class="cinfo-lbl">Office Hours</div><div class="cinfo-val">Monday – Saturday: 9:00 AM – 4:30 PM</div></div>
+        </div>
+        <!-- Map placeholder -->
+        <div class="contact-map" style="height:200px;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:14px;">
+          📌 Dhekijuli, Sonitpur, Assam
+        </div>
+      </div>
+      <div class="cform">
+        <div style="font-family:var(--serif);font-size:22px;color:var(--navy);margin-bottom:22px;">Send a Message</div>
+        <div class="form-row2">
+          <div class="form-gr"><label class="form-lbl">First Name</label><input class="form-inp" placeholder="First name"/></div>
+          <div class="form-gr"><label class="form-lbl">Last Name</label><input class="form-inp" placeholder="Last name"/></div>
+        </div>
+        <div class="form-gr"><label class="form-lbl">Email</label><input class="form-inp" type="email" placeholder="your@email.com"/></div>
+        <div class="form-gr"><label class="form-lbl">Subject</label><input class="form-inp" placeholder="e.g. Admission Enquiry"/></div>
+        <div class="form-gr"><label class="form-lbl">Message</label><textarea class="form-inp" placeholder="Write your message…"></textarea></div>
+        <button class="btn btn-prim" style="width:100%;justify-content:center;" onclick="submitMsg()">Send Message →</button>
+        <div id="msgOk" class="hidden" style="margin-top:14px;background:#edf7f0;color:#1a6640;padding:12px 16px;border-radius:8px;font-size:13.5px;">✅ Message sent! We'll respond within 1–2 working days.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ ADMISSIONS ═══ -->
+<div class="page" id="page-admissions">
+  <section class="sec wrap">
+    <div class="lbl">Join Us</div>
+    <h2 class="sec-title">Admissions 2025–26</h2>
+    <p class="sec-sub">Applications are now open for all undergraduate and postgraduate programmes. Seats are limited.</p>
+    <div class="g3" style="margin-bottom:36px;">
+      <div class="card"><div style="padding:28px;">
+        <div style="font-size:36px;margin-bottom:12px;">📝</div>
+        <div style="font-family:var(--serif);font-size:19px;color:var(--navy);margin-bottom:8px;">Step 1 — Apply</div>
+        <p style="color:var(--mid);font-size:13.5px;">Fill the online application form with your personal details and academic records. Keep scanned copies of documents ready.</p>
+      </div></div>
+      <div class="card"><div style="padding:28px;">
+        <div style="font-size:36px;margin-bottom:12px;">📄</div>
+        <div style="font-family:var(--serif);font-size:19px;color:var(--navy);margin-bottom:8px;">Step 2 — Documents</div>
+        <p style="color:var(--mid);font-size:13.5px;">Upload mark sheets, identity proof, category certificate (if applicable), and a recent passport-sized photograph.</p>
+      </div></div>
+      <div class="card"><div style="padding:28px;">
+        <div style="font-size:36px;margin-bottom:12px;">🎉</div>
+        <div style="font-family:var(--serif);font-size:19px;color:var(--navy);margin-bottom:8px;">Step 3 — Confirmation</div>
+        <p style="color:var(--mid);font-size:13.5px;">After merit-based selection, receive your admission confirmation and pay the semester fees to confirm your seat.</p>
+      </div></div>
+    </div>
+    <div style="text-align:center;">
+      <button class="btn btn-gold" onclick="go('courses')" style="margin-right:14px;">View Courses & Fees →</button>
+      <button class="btn btn-outl" onclick="go('contact')">Contact Admissions</button>
+    </div>
+  </section>
+</div>
+
+</div><!-- /root -->
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-about">
+      <div class="logo">
+        <div class="logo-crest" style="background:linear-gradient(135deg,var(--accent),#e8c96a);">L</div>
+        <div class="logo-txt">
+          <div class="logo-name">LOKD College</div>
+          <div class="logo-sub">Lokanayak Omeo Kumar Das College</div>
+        </div>
+      </div>
+      <p>A premier institution of higher education in Dhekiajuli since 1970 — dedicated to academic excellence, holistic development, and building responsible citizens.</p>
+      <div class="soc">
+        <a href="#">f</a>
+        <a href="#">𝕏</a>
+        <a href="#">in</a>
+        <a href="#">📷</a>
+        <a href="#">▶</a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="#" onclick="go('home')">Home</a></li>
+        <li><a href="#" onclick="go('about')">About Us</a></li>
+        <li><a href="#" onclick="go('courses')">Courses</a></li>
+        <li><a href="#" onclick="go('admissions')">Admissions</a></li>
+        <li><a href="#" onclick="go('notices')">Notices</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Academics</h5>
+      <ul>
+        <li><a href="#" onclick="go('faculty')">Faculty & Staff</a></li>
+        <li><a href="#" onclick="go('achievements')">Achievements</a></li>
+        <li><a href="#" onclick="go('activities')">Activities</a></li>
+        <li><a href="#" onclick="go('news')">News & Events</a></li>
+        <li><a href="#" onclick="go('profile')">Student Portal</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="#">📍 Dhekiajuli, Sonitpur</a></li>
+        <li><a href="#">📞 +91 98570 12345</a></li>
+        <li><a href="#">📧 info@lokdcollege.edu.in</a></li>
+        <li><a href="#" onclick="go('contact')">Send a Message</a></li>
+        <li><a href="#">Assam — 784 110</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Lokanayak Omeo Kumar Das College. All rights reserved.</span>
+    <span>Developed by BEETCORP
+  </div>
+</footer>
+
+<!-- NOTICE MODAL -->
+<div class="modal-bg" id="nModal" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-x" onclick="closeModal()">×</button>
+    <div id="nModalBody"></div>
+  </div>
+</div>
+
+<!-- ═══════════════ SCRIPT ═══════════════ -->
+<script>
+/* ── DATA ── */
+const NOTICES = [
+  { d:'30', m:'Mar', tag:'Exam', title:'End-Semester Exam Schedule — Sem 5 & 6', desc:'Examinations begin April 14. Hall tickets available at Exam Section from April 8.', full:'All students of Semester 5 and 6 are hereby notified that the End-Semester Examinations will commence on April 14, 2025. Students must collect their Hall Tickets from the Examination Section (Admin Block, Room 104) by April 10. Attendance below 75% will disqualify a student without medical exemption. Seating plans will be displayed on college notice board by April 12.' },
+  { d:'25', m:'Mar', tag:'Admission', title:'Admissions Open 2025–26 — All Programmes', desc:'Online applications now open. Closing date: April 30, 2025. Merit list: May 20.', full:'LOK College announces the commencement of admissions for the academic session 2025–26 for all UG and PG programmes. Eligible candidates are invited to apply online via the college portal. Last date for application: April 30, 2025. Merit lists for Round 1 will be displayed on May 20, 2025. For assistance, contact the Admissions Office (Mon–Sat, 9 AM–4 PM).' },
+  { d:'20', m:'Mar', tag:'Event', title:'Annual Sports Day — April 18, 2025', desc:'All students encouraged to register for track & field, cricket, football, and indoor events.', full:'The Annual Sports Day of LOK College will be held on April 18, 2025 at the college sports ground. Events include 100m, 400m, 1500m, long jump, high jump, cricket, football, volleyball, carrom, and chess. Students must register at the Physical Education Department by April 12. Prize distribution at 4:00 PM. Chief Guest: Principal, LOK College.' },
+  { d:'14', m:'Mar', tag:'Scholarship', title:'Scholarship Applications Open — Last Date April 25', desc:'State Government Post-Matric Scholarship applications now open for all eligible students.', full:'The State Government Post-Matric Scholarship for SC/ST/OBC and Minority students is now open for applications. All eligible students must submit their applications through the National Scholarship Portal (NSP) and submit a hard copy to the Scholarship Section of the college by April 25, 2025. Required documents: Income certificate, Caste certificate, last semester marksheet, bank passbook copy.' },
+  { d:'08', m:'Mar', tag:'NAAC', title:'NAAC Re-Accreditation Peer Team Visit — May 2025', desc:'Preparations underway for NAAC Peer Team visit scheduled in May 2025.', full:'The college is preparing for the NAAC Re-Accreditation Peer Team Visit scheduled for May 2025. All faculty members, staff, and students are requested to cooperate fully during the visit. Departments are advised to update records, displays, and portfolios. The IQAC will circulate a preparation checklist to all HODs by March 20.' },
+];
+
+const COURSES = [
+  { ico:'⚛️', nm:'B.Sc. Physics (Hons)', dur:'3 Years', fee:'₹20,000/yr', desc:'Classical mechanics, electromagnetism, quantum physics, and laboratory work. Strong research culture.', col:'#0d2b5e' },
+  { ico:'🧪', nm:'B.Sc. Chemistry (Hons)', dur:'3 Years', fee:'₹20,000/yr', desc:'Organic, inorganic & physical chemistry with modern analytical laboratory facilities.', col:'#1a4080' },
+  { ico:'🔢', nm:'B.Sc. Mathematics (Hons)', dur:'3 Years', fee:'₹18,000/yr', desc:'Pure and applied mathematics: calculus, algebra, statistics, numerical methods, and more.', col:'#2563a8' },
+  { ico:'🌿', nm:'B.Sc. Botany (Hons)', dur:'3 Years', fee:'₹18,000/yr', desc:'Plant biology, ecology, genetics, and biotechnology. Access to a rich botanical garden.', col:'#0d5940' },
+  { ico:'🦠', nm:'B.Sc. Zoology (Hons)', dur:'3 Years', fee:'₹18,000/yr', desc:'Animal diversity, ecology, physiology, cell biology, and field ecology studies.', col:'#5e3a1a' },
+  { ico:'📖', nm:'B.A. English (Hons)', dur:'3 Years', fee:'₹14,000/yr', desc:'Literature, linguistics, creative writing, and communication skills for the modern world.', col:'#3a1a5e' },
+  { ico:'🏛️', nm:'B.A. History (Hons)', dur:'3 Years', fee:'₹14,000/yr', desc:'World history, Indian history, Manipur history, and historiography.', col:'#5e1a1a' },
+  { ico:'💹', nm:'B.Com. (Hons)', dur:'3 Years', fee:'₹16,000/yr', desc:'Accounting, business law, economics, taxation, and finance. Excellent placement record.', col:'#1a4040' },
+  { ico:'🖥️', nm:'M.Sc. Computer Science', dur:'2 Years', fee:'₹28,000/yr', desc:'Advanced programming, AI, machine learning, databases, and cybersecurity.', col:'#0d2b5e' },
+];
+
+const ACHIEVEMENTS = [
+  { ico:'🏆', tag:'Institutional', title:'NAAC B+ Accreditation 2023', desc:'The college received B+ accreditation from the National Assessment and Accreditation Council, validating our academic quality.' },
+  { ico:'🥇', tag:'Student', title:'National Science Olympiad — Gold', desc:'Wahengbam Priya secured the Gold Medal at the National Science Olympiad 2024, competing against 5,000+ students.' },
+  { ico:'🎓', tag:'Placement', title:'95% Placement — Commerce 2024', desc:'The Commerce graduating batch of 2024 achieved 95% placement in banks, firms, and MNCs across India.' },
+  { ico:'⚽', tag:'Sports', title:'State Football Champions 2024', desc:"LOKD College men's football team won the State Inter-College Football Championship for the second year running." },
+  { ico:'🔬', tag:'Research', title:'UGC-Funded Research Project', desc:'Dr. M. Singh secured a ₹12 lakh UGC research grant for a study on endemic plant species of Manipur.' },
+  { ico:'🎭', tag:'Cultural', title:'Best College — Cultural Festival 2023', desc:'LOKD College won the Best College Award at the Gauhati University Inter-College Cultural Festival 2023.' },
+];
+
+const FACULTY = [
+  { e:'👩‍🏫', nm:'Sukhdev Adhikari', desg:'Principal', dept:'Administration' },
+  { e:'👨‍🔬', nm:'Prof. Biswajit Dey', desg:'Head of Department', dept:'Physics' },
+  { e:'👩‍🔬', nm:'Dr. L. Meitei', desg:'Associate Professor', dept:'Chemistry' },
+  { e:'👨‍🏫', nm:'Mr. DigantaB Baruah', desg:'Assistant Professor', dept:'Mathematics' },
+  { e:'👩‍🎓', nm:'Dr. N. Shyamananda', desg:'Professor', dept:'English' },
+  { e:'👨‍💼', nm:'Mr. T. Nimai Singh', desg:'Registrar', dept:'Administration' },
+  { e:'👩‍🏫', nm:'Ms. B. Sangeeta Devi', desg:'Assistant Professor', dept:'Commerce' },
+  { e:'👨‍🏫', nm:'Dr. S. Thoibi Singh', desg:'Associate Professor', dept:'Botany' },
+];
+
+const ACTIVITIES = [
+  { ico:'🪖', nm:'National Cadet Corps (NCC)', desc:"One of the strongest NCC units in Assam — Army, Navy & Air Force wings. Participate in Republic Day Parade, Adventure Camps, and community service drives.", cta:'Join NCC' },
+  { ico:'💻', nm:'Computer & Coding Club', desc:'Weekly sessions on programming, web development, and problem-solving. Compete in state and national hackathons.', cta:'Join Club' },
+  { ico:'🎭', nm:'Cultural & Literary Society', desc:'Celebrate the rich cultural heritage of Manipur through dance, drama, music, and Manipuri literature events.', cta:'Join Society' },
+  { ico:'🌱', nm:'Eco & Environment Club', desc:'Tree plantations, awareness campaigns, and nature treks. The Green Campus Initiative is led by this club.', cta:'Join Club' },
+  { ico:'⚽', nm:'Sports & Athletics', desc:'Cricket, football, volleyball, athletics, and badminton. Represent LOKD College at state and university meets.', cta:'Register' },
+  { ico:'📰', nm:'Student Union & Magazine', desc:'Voice of the student community. Publish the annual magazine, organise debates, and represent student interests.', cta:'Get Involved' },
+];
+
+const NEWS = [
+  { e:'🏅', dt:'March 28, 2025', title:'LOKD Students Win Regional Hackathon', exc:'A team of four students from the CS department won first place at the Northeast Regional Coding Challenge 2025, beating 180 teams.' },
+  { e:'🌿', dt:'March 22, 2025', title:'Green Campus Drive Launches', exc:'The Eco Club launched the college\'s flagship Green Campus initiative — 500 saplings planted in a single day by students and faculty.' },
+  { e:'🔬', dt:'March 15, 2025', title:'New Science Lab Block Inaugurated', exc:'The newly constructed, fully-equipped Science Laboratory Block was inaugurated by the Principal, adding 6 new labs to the college.' },
+  { e:'🤝', dt:'March 10, 2025', title:'MoU Signed with State Bank of India', exc:'LOKD College signed an MoU with SBI for internship opportunities, financial literacy programmes, and scholarship facilitation.' },
+  { e:'🎤', dt:'March 5, 2025', title:'Debate Competition — LOKD Wins', exc:'Our team won the Inter-College Parliamentary Debate hosted by Gauhati University, defeating 12 colleges in the finals.' },
+  { e:'🎓', dt:'Feb 28, 2025', title:'Alumni Homecoming 2025 — 400+ Gather', exc:'Over 400 alumni returned to the campus for the Annual Homecoming, sharing career insights and announcing a new Alumni Scholarship Fund.' },
+];
+
+/* ── RENDER ── */
+function renderNotices(el, max) {
+  const items = max ? NOTICES.slice(0, max) : NOTICES;
+  el.innerHTML = items.map(n => `
+    <div class="notice-row" onclick="openNotice('${n.title.replace(/'/g,"\\'")}')">
+      <div class="notice-cal">
+        <div class="notice-cal-d">${n.d}</div>
+        <div class="notice-cal-m">${n.m}</div>
+      </div>
+      <div>
+        <div class="notice-h">${n.title} <span class="badge" style="margin-left:7px;">${n.tag}</span></div>
+        <div class="notice-p">${n.desc}</div>
+      </div>
+      <div class="notice-chev">›</div>
+    </div>`).join('');
+}
+
+function renderCourses() {
+  document.getElementById('courseGrid').innerHTML = COURSES.map(c => `
+    <div class="card">
+      <div class="course-top" style="background:${c.col}"></div>
+      <div class="course-body">
+        <div class="course-ico">${c.ico}</div>
+        <div class="course-name">${c.nm}</div>
+        <div class="course-meta">
+          <span>⏱ ${c.dur}</span>
+          <span>💰 ${c.fee}</span>
+        </div>
+        <div class="course-desc">${c.desc}</div>
+        <div class="course-cta">
+          <button class="btn btn-outl" style="padding:9px 18px;font-size:13px;" onclick="go('contact')">Enquire →</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function renderAch() {
+  document.getElementById('achGrid').innerHTML = ACHIEVEMENTS.map(a => `
+    <div class="card ach-card">
+      <div class="ach-body">
+        <div class="ach-ico">${a.ico}</div>
+        <span class="badge">${a.tag}</span>
+        <div class="ach-title" style="margin-top:10px;">${a.title}</div>
+        <div class="ach-desc">${a.desc}</div>
+      </div>
+    </div>`).join('');
+}
+
+function renderFaculty() {
+  document.getElementById('facGrid').innerHTML = FACULTY.map(f => `
+    <div class="card fac-card">
+      <div class="fac-avatar">${f.e}</div>
+      <div class="fac-name">${f.nm}</div>
+      <div class="fac-desg">${f.desg}</div>
+      <div class="fac-dept">${f.dept}</div>
+    </div>`).join('');
+}
+
+function renderAct() {
+  document.getElementById('actGrid').innerHTML = ACTIVITIES.map(a => `
+    <div class="card">
+      <div class="act-body">
+        <div class="act-hd"><div class="act-ico">${a.ico}</div><div class="act-title">${a.nm}</div></div>
+        <div class="act-desc">${a.desc}</div>
+        <button class="btn btn-prim" style="font-size:13px;padding:10px 20px;" onclick="go('contact')">${a.cta} →</button>
+      </div>
+    </div>`).join('');
+}
+
+function renderNews(id, max) {
+  const items = max ? NEWS.slice(0, max) : NEWS;
+  document.getElementById(id).innerHTML = items.map(n => `
+    <div class="card">
+      <div class="news-img">${n.e}</div>
+      <div class="news-body">
+        <div class="news-date">${n.dt}</div>
+        <div class="news-title">${n.title}</div>
+        <div class="news-exc">${n.exc}</div>
+        <span class="news-more">Read more →</span>
+      </div>
+    </div>`).join('');
+}
+
+/* ── ROUTING ── */
+function go(p) {
+  document.querySelectorAll('.page').forEach(x => x.classList.remove('on'));
+  const pg = document.getElementById('page-' + p);
+  if (pg) pg.classList.add('on');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('on'));
+  const nl = document.getElementById('nl-' + p);
+  if (nl) nl.classList.add('on');
+  document.getElementById('navLinks').classList.remove('open');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  return false;
+}
+
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+function toggleSearch() {
+  const sw = document.getElementById('sw');
+  sw.classList.toggle('open');
+  if (sw.classList.contains('open')) document.getElementById('sInp').focus();
+  else document.getElementById('sInp').value = '';
+}
+
+function doSearch(v) {
+  const q = v.toLowerCase();
+  if (!q) return;
+  if (q.includes('course') || q.includes('programme')) go('courses');
+  else if (q.includes('notice') || q.includes('exam')) go('notices');
+  else if (q.includes('faculty') || q.includes('teacher') || q.includes('staff')) go('faculty');
+  else if (q.includes('news') || q.includes('event')) go('news');
+  else if (q.includes('contact') || q.includes('address')) go('contact');
+  else if (q.includes('about') || q.includes('history') || q.includes('mission')) go('about');
+  else if (q.includes('achiev') || q.includes('award')) go('achievements');
+  else if (q.includes('activit') || q.includes('ncc') || q.includes('club') || q.includes('sport')) go('activities');
+  else if (q.includes('admission')) go('admissions');
+  else if (q.includes('profile') || q.includes('student') || q.includes('login')) go('profile');
+}
+
+/* ── MODAL ── */
+function openNotice(title) {
+  const n = NOTICES.find(x => x.title === title);
+  if (!n) return;
+  document.getElementById('nModalBody').innerHTML = `
+    <span class="badge" style="margin-bottom:14px;display:inline-block;">${n.tag}</span>
+    <h2 style="font-family:var(--serif);font-size:22px;color:var(--navy);margin-bottom:8px;padding-right:20px;">${n.title}</h2>
+    <div style="color:var(--soft);font-size:12.5px;margin-bottom:18px;">📅 ${n.d} ${n.m} 2025</div>
+    <p style="color:var(--mid);line-height:1.75;font-size:14.5px;">${n.full}</p>
+    <div style="margin-top:24px;display:flex;gap:12px;">
+      <button class="btn btn-prim" onclick="closeModal()">Close</button>
+      <button class="btn btn-outl">Download PDF</button>
+    </div>`;
+  document.getElementById('nModal').classList.add('on');
+}
+
+function closeModal(e) {
+  if (!e || e.target.id === 'nModal' || e.currentTarget?.classList?.contains('modal-x')) {
+    document.getElementById('nModal').classList.remove('on');
+  }
+}
+
+/* ── LOGIN ── */
+function doLogin() {
+  const id = document.getElementById('lid').value;
+  const pw = document.getElementById('lpwd').value;
+  if ((id === 'demo' || id === 'LOK2025001') && (pw === 'demo123' || pw === 'demo')) {
+    document.getElementById('portalLogin').classList.add('hidden');
+    document.getElementById('portalDash').classList.remove('hidden');
+  } else {
+    alert('Invalid credentials. Try: demo / demo123');
+  }
+}
+
+function doLogout() {
+  document.getElementById('portalDash').classList.add('hidden');
+  document.getElementById('portalLogin').classList.remove('hidden');
+  document.getElementById('lid').value = '';
+  document.getElementById('lpwd').value = '';
+}
+
+/* ── CONTACT ── */
+function submitMsg() {
+  const ok = document.getElementById('msgOk');
+  ok.classList.remove('hidden');
+  setTimeout(() => ok.classList.add('hidden'), 5000);
+}
+
+/* ── INIT ── */
+renderNotices(document.getElementById('homeNotices'), 3);
+renderNotices(document.getElementById('allNotices'));
+renderCourses();
+renderAch();
+renderFaculty();
+renderAct();
+renderNews('homeNews', 3);
+renderNews('newsGrid');
+</script>
+</body>
+</html>
